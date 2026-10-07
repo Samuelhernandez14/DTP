@@ -1,0 +1,10 @@
+.env
+data/
+tests/samples/
+*.json
+!pyproject.toml
+txt_generados/
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/

@@ -1,0 +1,6 @@
+pymupdf
+pytesseract
+requests
+
+[dev]
+pytest
