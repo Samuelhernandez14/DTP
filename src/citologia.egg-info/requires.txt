@@ -1,6 +1,9 @@
 pymupdf
 pytesseract
 requests
+pydantic-settings
+pymysql
+tenacity
 
 [dev]
 pytest

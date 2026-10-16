@@ -7,9 +7,12 @@ name = "citologia"
 version = "0.1.0"
 requires-python = ">=3.10"
 dependencies = [
-    "pymupdf",
+"pymupdf",
     "pytesseract",
     "requests",
+    "pydantic-settings",
+    "pymysql",
+    "tenacity",
 ]
 
 [project.optional-dependencies]

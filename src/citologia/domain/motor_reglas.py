@@ -1,5 +1,3 @@
-"""Motor de reglas (sin IA): decide si una usuaria se activa hacia colposcopia.
-Determinista y auditable: cada decisión devuelve qué regla se cumplió y por qué."""
 
 from citologia.domain.catalogo import (
     ANORMALES_REGLA_1, CITOLOGIA, VPH_DETECTADO,
