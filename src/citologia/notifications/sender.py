@@ -30,12 +30,14 @@ class SmtpSender:
                  starttls: bool = True, timeout: int = 30):
         self._host, self._port, self._user = host, port, user
         self._password, self._starttls, self._timeout = password, starttls, timeout
+        self._ssl = port == 465          # 465 = SSL implícito; 587 = STARTTLS
 
     @retry(retry=retry_if_exception_type(_TRANSITORIOS), stop=stop_after_attempt(4),
-           wait=wait_exponential_jitter(initial=2, max=30), reraise=True)
+           wait=wait_exponential_jitter(multiplier=2, max=30), reraise=True)
     def _enviar(self, msg) -> None:
-        with smtplib.SMTP(self._host, self._port, timeout=self._timeout) as smtp:
-            if self._starttls:
+        clase = smtplib.SMTP_SSL if self._ssl else smtplib.SMTP
+        with clase(self._host, self._port, timeout=self._timeout) as smtp:
+            if self._starttls and not self._ssl:
                 smtp.starttls()
             if self._user:
                 smtp.login(self._user, self._password)

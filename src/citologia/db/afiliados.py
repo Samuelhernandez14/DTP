@@ -31,7 +31,7 @@ class MySQLAfiliadoRepository:
         self._c = conexion
 
     @retry(retry=retry_if_exception_type(pymysql.err.OperationalError),
-           stop=stop_after_attempt(3), wait=wait_exponential_jitter(initial=1, max=10),
+           stop=stop_after_attempt(3), wait=wait_exponential_jitter(multiplier=1, max=10),
            reraise=True)
     def _consultar(self, tipo: str, numero: str) -> list[dict]:
         s = self._s

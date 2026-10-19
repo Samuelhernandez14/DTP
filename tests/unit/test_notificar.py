@@ -5,7 +5,7 @@ from citologia.notifications.sender import DryRunSender
 from citologia.pipeline.notificar import TIPO_ACTIVACION, notificar_activacion
 
 SHA = "a" * 64
-ID_OK = IdentidadPDF("CC", "1000000001", "MARIA PEREZ")
+ID_OK = IdentidadPDF("CC", "1000000001", "MARIA PEREZ\nCC 1000000001")
 ACTIVAR = Decision(True, 1, Indicacion.TAMIZAJE, False, ["Regla 1"])
 
 
